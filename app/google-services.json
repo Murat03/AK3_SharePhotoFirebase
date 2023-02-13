@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "34634591648",
+    "project_id": "photoshare-bfed0",
+    "storage_bucket": "photoshare-bfed0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34634591648:android:2f52338a68dc4ba67ac8c5",
+        "android_client_info": {
+          "package_name": "com.muratipek.ak3_sharephotofirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "34634591648-s5pphlcnt9b5vqvck7b4qalkpd7fonup.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgQJEh19rR7donTWXG2dLVhlq48A9k1wI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "34634591648-s5pphlcnt9b5vqvck7b4qalkpd7fonup.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
