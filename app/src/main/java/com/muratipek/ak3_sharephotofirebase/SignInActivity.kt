@@ -19,9 +19,24 @@ class SignInActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
+        if(auth.currentUser != null){
+            goFeedActivity()
+        }
     }
     fun login(view: View){
+        val email = binding.emailText.text.toString()
+        val password = binding.passwordText.text.toString()
 
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+            if(task.isSuccessful){
+                val currentUser = auth.currentUser?.email.toString()
+                Toast.makeText(applicationContext, "Welcome ${currentUser}", Toast.LENGTH_LONG).show()
+
+                goFeedActivity()
+            }
+        }.addOnFailureListener { exception ->
+            Toast.makeText(applicationContext, exception.localizedMessage, Toast.LENGTH_LONG).show()
+        }
     }
     fun signUp(view: View){
         val email = binding.emailText.text.toString()
@@ -31,12 +46,15 @@ class SignInActivity : AppCompatActivity() {
             //asenkron
             if(task.isSuccessful){
                 //diğer aktiviteye gidelim
-                val intent = Intent(applicationContext, FeedActivity::class.java)
-                startActivity(intent)
-                finish()
+                goFeedActivity()
             }
         }.addOnFailureListener { exception ->
             Toast.makeText(applicationContext, exception.localizedMessage, Toast.LENGTH_LONG).show()
         }
+    }
+    fun goFeedActivity(){
+        val intent = Intent(applicationContext, FeedActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
